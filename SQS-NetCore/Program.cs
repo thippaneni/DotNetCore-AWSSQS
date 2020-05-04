@@ -16,6 +16,7 @@ namespace SQS_NetCore
             if (queueList != null)
             {
                 var queueUrl = "https://sqs.us-east-1.amazonaws.com/536344005429/" + queueName;
+                var queueUrl1 = GetQueueUrl(queueName);
 
                 if (queueList.Count == 0 || !queueList.Contains(queueUrl))
                 {
@@ -92,6 +93,14 @@ namespace SQS_NetCore
                 {
                     return false;
                 }
+            }
+        }
+
+        public static string GetQueueUrl(string queueName)
+        {
+            using (IAmazonSQS sqs = new AmazonSQSClient(RegionEndpoint.USEast1))
+            {
+                return sqs.GetQueueUrlAsync(queueName).Result.QueueUrl;
             }
         }
     }

@@ -1,0 +1,14 @@
+# Source : https://github.com/github/gitignore
+# Maven, Node, Python, Rails
+
+# Maven
+
+SQS-NetCore/bin/
+SQS-NetCore/obj/
+SQS-NetCore-ReadMessage/bin/
+SQS-NetCore-ReadMessage/obj/
+.git/
+.vs/
+
+# Ignore node_modules
+node_modules/
